@@ -1,0 +1,13 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        count = {}
+        for n in nums:
+            count[n] = count.get(n, 0) + 1
+        arr = []
+        for n, c in count.items():
+            arr.append([c, n])
+        arr.sort()
+        output = []
+        while len(output) < k:
+            output.append(arr.pop()[1])
+        return output
